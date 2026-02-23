@@ -1,0 +1,332 @@
+/* ===== COMPREHENSIVE THEME SYSTEM ===== */
+/* This file contains all theme-related CSS variables and logic */
+/* Uses a clean, unified approach without redundant rules */
+
+:root {
+  /* ===== TYPOGRAPHY ===== */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-heading: 'Poppins', var(--font-primary);
+  
+  /* ===== BRAND COLORS ===== */
+  --primary: #ff9900;
+  --primary-dark: #232f3e;
+  --primary-light: #ffb84d;
+  --primary-lighter: #ffcc80;
+  --secondary: #146eb4;
+  --secondary-light: #4a90e2;
+  --accent: #00d4aa;
+  
+  /* ===== EXTENDED COLOR PALETTE ===== */
+  /* Primary Palette - Amazon Orange */
+  --primary-50: #fff7ed;
+  --primary-100: #ffedd5;
+  --primary-200: #fed7aa;
+  --primary-300: #fdba74;
+  --primary-400: #fb923c;
+  --primary-500: #ff9900;
+  --primary-600: #ea580c;
+  --primary-700: #c2410c;
+  --primary-800: #9a3412;
+  --primary-900: #7c2d12;
+  
+  /* Secondary Palette - Trust Blue */
+  --secondary-50: #eff6ff;
+  --secondary-100: #dbeafe;
+  --secondary-500: #146eb4;
+  --secondary-700: #1e40af;
+  --secondary-900: #1e3a8a;
+  
+  /* Semantic Colors */
+  --success: #10b981;
+  --success-light: #d1fae5;
+  --success-dark: #065f46;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+  
+  /* ===== PRIMARY COLOR TRANSPARENCIES ===== */
+  --primary-alpha-03: rgba(255, 153, 0, 0.03);
+  --primary-alpha-05: rgba(255, 153, 0, 0.05);
+  --primary-alpha-06: rgba(255, 153, 0, 0.06);
+  --primary-alpha-08: rgba(255, 153, 0, 0.08);
+  --primary-alpha-1: rgba(255, 153, 0, 0.1);
+  --primary-alpha-13: rgba(255, 153, 0, 0.13);
+  --primary-alpha-15: rgba(255, 153, 0, 0.15);
+  --primary-alpha-18: rgba(255, 153, 0, 0.18);
+  --primary-alpha-2: rgba(255, 153, 0, 0.2);
+  --primary-alpha-3: rgba(255, 153, 0, 0.3);
+  --primary-alpha-5: rgba(255, 153, 0, 0.5);
+  
+  /* ===== NEUTRAL COLORS ===== */
+  --gray-100: #f0f0f0;
+  --gray-200: #e0e0e0;
+  --gray-300: #ddd;
+  --gray-400: #999;
+  --gray-500: #666;
+  --gray-600: #333;
+  --gray-700: #232323;
+  
+  /* ===== SOCIAL COLORS ===== */
+  --color-linkedin: #0077b5;
+  --color-twitter: #1da1f2;
+  --color-facebook: #1877f2;
+
+  /* ===== LIGHT THEME (DEFAULT) ===== */
+  --theme-bg-primary: #ffffff;
+  --theme-bg-secondary: #f8f9fa;
+  --theme-bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --theme-bg-hero: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+  --theme-text-primary: #1a202c;
+  --theme-text-secondary: #4a5568;
+  --theme-text-muted: #718096;
+  --theme-card-bg: rgba(255, 255, 255, 0.95);
+  --theme-glass-bg: rgba(255, 255, 255, 0.1);
+  --theme-glass-border: rgba(255, 255, 255, 0.2);
+  --theme-shadow-sm: rgba(0, 0, 0, 0.05);
+  --theme-shadow: rgba(0, 0, 0, 0.1);
+  --theme-shadow-lg: rgba(0, 0, 0, 0.15);
+
+  /* ===== SEMANTIC COLOR MAPPINGS ===== */
+  --white: var(--theme-bg-primary);
+  --text: var(--theme-text-primary);
+  --text-light: var(--theme-text-secondary);
+  --text-secondary: var(--theme-text-secondary);
+  --text-muted: var(--theme-text-muted);
+  --theme-text-primary-inverted: #ffffff;
+  --bg: var(--theme-bg-gradient);
+  --bg-alt: var(--theme-bg-secondary);
+  --card-bg: var(--theme-card-bg);
+  --glass-bg: var(--theme-glass-bg);
+  --glass-border: 1px solid var(--theme-glass-border);
+  --gradient-hero: var(--theme-bg-hero);
+
+  /* ===== SHADOWS - Premium Depth ===== */
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.03);
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 5px 10px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 15px 35px rgba(0, 0, 0, 0.1), 0 8px 15px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12), 0 10px 20px rgba(0, 0, 0, 0.06);
+  --shadow-xl: 0 25px 60px rgba(0, 0, 0, 0.15), 0 15px 30px rgba(0, 0, 0, 0.08);
+
+  /* ===== LAYOUT CONSTANTS ===== */
+  --glass-blur: blur(20px);
+  --radius-sm: 0.75rem;
+  --radius: 1.5rem;
+  --radius-lg: 2rem;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s ease;
+  
+  /* ===== TYPOGRAPHY ===== */
+  --font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
+  
+  /* Type Scale - Premium Sizing */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.625rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+  --text-5xl: 3.25rem;
+  --text-6xl: 4rem;
+  
+  /* Font Weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-black: 900;
+  
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* ===== GRADIENTS ===== */
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+  --gradient-accent: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  --gradient-subtle: linear-gradient(135deg, rgba(255, 153, 0, 0.05), rgba(35, 47, 62, 0.05));
+  --gradient-card-light: linear-gradient(135deg, rgba(255, 153, 0, 0.05), rgba(255, 255, 255, 0.8));
+  --gradient-card-hover: linear-gradient(135deg, rgba(255, 153, 0, 0.1), rgba(255, 255, 255, 0.9));
+  --gradient-warm: linear-gradient(90deg, #fff7e6 0%, #f3f4f6 100%);
+  
+  /* Background Colors */
+  --bg-price-light: #fff3e0;
+  --bg-price-secondary: #f5f5f5;
+  --bg-urgent: #ff4444;
+  --bg-loading: #e9ecef;
+  --bg-skeleton: linear-gradient(90deg, var(--gray-100) 0px, var(--gray-200) 40px, var(--gray-100) 80px);
+  --border-highlight: #ffe0b2;
+}
+
+/* ===== DARK THEME ===== */
+[data-theme="dark"] {
+  /* Override theme variables for dark mode */
+  --theme-bg-primary: #1a1a1a;
+  --theme-bg-secondary: #1a202c;
+  --theme-bg-gradient: linear-gradient(135deg, #0f1419 0%, #1a202c 100%);
+  --theme-bg-hero: linear-gradient(135deg, #1a202c 0%, #0f1419 50%, #1a202c 100%);
+  --theme-text-primary: #e2e8f0;
+  --theme-text-secondary: #cbd5e1;
+  --theme-text-muted: #94a3b8;
+  --theme-text-primary-inverted: #1a202c;
+  --theme-card-bg: rgba(30, 41, 59, 0.95);
+  --theme-glass-bg: rgba(30, 41, 59, 0.2);
+  --theme-glass-border: rgba(148, 163, 184, 0.2);
+  --theme-shadow-sm: rgba(0, 0, 0, 0.3);
+  --theme-shadow: rgba(0, 0, 0, 0.4);
+  --theme-shadow-lg: rgba(0, 0, 0, 0.5);
+
+  /* Dark theme color adjustments */
+  --primary-dark: #e2e8f0;
+  --primary-light: #ffa726;
+}
+
+/* ===== UNIVERSAL COMPONENT STYLES ===== */
+/* These styles use CSS variables and work automatically with both themes */
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 { color: var(--text); }
+p, span, li { color: var(--text-light); }
+.text-muted { color: var(--text-muted); }
+
+/* Interactive Elements */
+.card {
+  background: var(--card-bg);
+  border: var(--glass-border);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  border: 1px solid var(--primary);
+  color: var(--white);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--text-light);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  background: var(--text-light);
+  color: var(--white);
+}
+
+/* Navigation */
+.nav-link {
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary);
+}
+
+/* Forms */
+.form-input {
+  background: var(--card-bg);
+  border: var(--glass-border);
+  color: var(--text);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Layout Components */
+.header {
+  background: var(--glass-bg);
+  border-bottom: var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+}
+
+.footer {
+  background: var(--bg-alt);
+  border-top: var(--glass-border);
+  color: var(--text-muted);
+}
+
+.section {
+  background: var(--bg);
+}
+
+/* Service Pills and Interactive Cards */
+.service-pill,
+.feature-card,
+.testimonial-card {
+  background: var(--card-bg);
+  border: var(--glass-border);
+  color: var(--text);
+  transition: var(--transition);
+}
+
+.service-pill:hover,
+.feature-card:hover,
+.testimonial-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* FAQ and Expandable Content */
+.faq-item {
+  background: var(--card-bg);
+  border: var(--glass-border);
+}
+
+.faq-question {
+  color: var(--text);
+}
+
+.faq-answer {
+  color: var(--text-light);
+}
+
+/* Links and CTAs */
+.cta-btn {
+  background: var(--gradient-primary);
+  color: var(--white);
+  border: 1px solid var(--primary);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  border: 1px solid var(--text-light);
+  color: var(--text);
+}
+
+a {
+  color: var(--primary);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-light);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  background: var(--card-bg);
+  border: var(--glass-border);
+  color: var(--text);
+}
+
+/* Utility Classes */
+.glass-effect {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+}
+
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow { box-shadow: var(--shadow); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
