@@ -122,6 +122,7 @@ export default function VisualDemoSection() {
               src="/images/before-after.png"
               alt="Before and after comparison showing the transformation from manual work to AI automation"
               className="w-full h-auto"
+              loading="lazy"
             />
             {/* Overlay gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-jungle/50 to-transparent pointer-events-none" />
@@ -148,6 +149,7 @@ export default function VisualDemoSection() {
                 src="/images/telegram-mockup.png"
                 alt="Telegram bot interface showing inventory alerts, PPC reports, and pricing updates"
                 className="w-full h-auto"
+                loading="lazy"
               />
             </div>
           </div>
@@ -170,6 +172,7 @@ export default function VisualDemoSection() {
                 src="/images/dashboard-mockup.png"
                 alt="Dashboard showing sales growth, PPC performance, inventory levels, and conversion rates"
                 className="w-full h-auto"
+                loading="lazy"
               />
             </div>
           </div>

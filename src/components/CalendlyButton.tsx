@@ -35,10 +35,12 @@ export default function CalendlyButton({
           <div 
             className="absolute inset-0 bg-jungle/95 backdrop-blur-sm"
             onClick={() => setIsOpen(false)}
+            role="presentation"
+            aria-hidden="true"
           />
           
           {/* Modal */}
-          <div className="relative w-full max-w-4xl h-[80vh] bg-jungle rounded-3xl overflow-hidden shadow-2xl border border-warm/10">
+          <div className="relative w-full max-w-4xl h-[80vh] bg-jungle rounded-3xl overflow-hidden shadow-2xl border border-warm/10" role="dialog" aria-label="Schedule a call with amajungle">
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-warm/10">
               <div className="flex items-center gap-3">
@@ -52,6 +54,7 @@ export default function CalendlyButton({
               </div>
               <button
                 onClick={() => setIsOpen(false)}
+                aria-label="Close scheduling dialog"
                 className="w-10 h-10 rounded-full bg-warm/5 flex items-center justify-center text-warm-72 hover:bg-warm/10 hover:text-warm transition-colors"
               >
                 <X size={20} />
@@ -64,7 +67,7 @@ export default function CalendlyButton({
                 src="https://calendly.com/amajungle/strategy-call?embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1"
                 width="100%"
                 height="100%"
-                frameBorder="0"
+                style={{ border: 'none' }}
                 title="Schedule a call with amajungle"
                 className="bg-jungle"
               />

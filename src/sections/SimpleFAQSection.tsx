@@ -92,6 +92,7 @@ export default function SimpleFAQSection() {
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full p-6 flex items-center justify-between text-left"
+                aria-expanded={openIndex === index}
               >
                 <span className="font-display text-lg font-bold text-warm pr-4">
                   {faq.question}

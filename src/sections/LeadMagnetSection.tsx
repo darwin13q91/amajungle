@@ -54,12 +54,22 @@ export default function LeadMagnetSection() {
     
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast.success('Audit request received! Check your email in 24-48 hours.');
-    setSubmitted(true);
-    setIsSubmitting(false);
+    try {
+      // Send audit request via mailto as a working fallback
+      // TODO: Replace with Formspree, EmailJS, or a serverless function for better UX
+      const subject = encodeURIComponent('Free Amazon Audit Request');
+      const body = encodeURIComponent(
+        `Email: ${email}\nStore URL: ${storeUrl || 'Not provided'}\n\nRequesting a free Amazon store audit.`
+      );
+      window.open(`mailto:hello@amajungle.com?subject=${subject}&body=${body}`, '_self');
+      
+      toast.success('Opening your email client to send the audit request...');
+      setSubmitted(true);
+    } catch {
+      toast.error('Something went wrong. Please email us directly at hello@amajungle.com');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

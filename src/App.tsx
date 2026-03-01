@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -6,7 +6,10 @@ import { Toaster } from 'sonner';
 
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
-import AboutPage from './pages/AboutPage';
+import ErrorBoundary from './components/ErrorBoundary';
+
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 import HeroSection from './sections/HeroSection';
 import LeadMagnetSection from './sections/LeadMagnetSection';
@@ -105,6 +108,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <ErrorBoundary>
       <div className="relative bg-jungle min-h-screen">
         {/* Grain overlay */}
         <div className="grain-overlay" />
@@ -122,17 +126,25 @@ function App() {
         />
 
         {/* Routes */}
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Navigation />
-              <HomePage />
-              <Footer />
-            </>
-          } />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
+        <Suspense fallback={
+          <div className="min-h-screen bg-jungle flex items-center justify-center">
+            <div className="w-8 h-8 border-2 border-neon border-t-transparent rounded-full animate-spin" />
+          </div>
+        }>
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Navigation />
+                <HomePage />
+                <Footer />
+              </>
+            } />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
       </div>
+      </ErrorBoundary>
     </BrowserRouter>
   );
 }
