@@ -11,8 +11,8 @@ gsap.registerPlugin(ScrollTrigger);
 const values = [
   {
     icon: Shield,
-    title: 'Own Your Tech',
-    description: 'We build AI agents that run on YOUR hardware. No SaaS lock-in, no monthly subscriptions. You own everything.',
+    title: '10 Years in Amazon',
+    description: 'From Seller Central support to managing 10+ accounts across US, UK, and EU marketplaces. We\'ve seen every problem — and solved it.',
   },
   {
     icon: Clock,
@@ -27,7 +27,7 @@ const values = [
   {
     icon: MessageCircle,
     title: 'Founder-Led',
-    description: 'You talk to the person building your solution. No account managers, no handoffs. Direct access.',
+    description: 'You talk directly to the person managing your account. No junior staff, no handoffs. Direct access.',
   },
 ];
 
@@ -38,9 +38,9 @@ const whyDifferent = [
     description: 'Most agencies want retainers forever. We build you a system that runs without us.',
   },
   {
-    title: 'AI tools charge monthly',
-    subtitle: 'You own your agent',
-    description: 'ChatGPT, Jasper, etc. — all SaaS. We build on your hardware. One fee, yours forever.',
+    title: 'Generalists guess at Amazon',
+    subtitle: 'We\'ve lived it for a decade',
+    description: 'From Seller Central support to multi-marketplace account management — we know every workflow inside out.',
   },
   {
     title: 'VAs need training & management',
@@ -153,13 +153,13 @@ export default function AboutPage() {
             About Us
           </span>
           <h1 className="font-display text-[clamp(36px,5vw,72px)] font-black text-warm uppercase tracking-tight mb-6 leading-[0.95]">
-            We're New.<br />
-            <span className="text-neon">We're Hungry.</span><br />
-            And We Guarantee Results.
+            10 Years of Amazon.<br />
+            <span className="text-neon">Now Powered by AI.</span>
           </h1>
           <p className="text-warm-72 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
-            amajungle is a new agency, but our founder spent 3 years scaling an Amazon FBA business 
-            to 7 figures. We built the AI tools and systems we wish we had back then.
+            amajungle is built on a decade of hands-on Amazon experience — from Seller Central support 
+            to managing multi-marketplace accounts across the US, UK, and EU. We combined that expertise 
+            with AI automation so you can scale faster with less effort.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <CalendlyButton>Book a free call</CalendlyButton>
@@ -181,38 +181,47 @@ export default function AboutPage() {
           
           <div className="space-y-6 text-warm-72 text-lg leading-relaxed">
             <p>
-              In 2022, I was running an Amazon FBA business doing $50K/month. Life was good — 
-              except I was spending 15+ hours a week on repetitive tasks: checking inventory, 
-              monitoring PPC, updating prices, responding to the same customer questions.
+              amajungle started with a simple question: why are Amazon sellers still doing 
+              everything manually when AI can handle 80% of the work?
             </p>
             <p>
-              I tried hiring VAs. Trained them for weeks. They made mistakes. They quit. 
-              I tried agencies. $3,000/month retainers with nothing to show for it.
+              Our founder, Allysa Kate Estardo, spent over a decade in the Amazon ecosystem. 
+              She started at Teleperformance, helping sellers navigate account concerns, subscription fees, 
+              listings, and shipment discrepancies across FBM, FBA, and ILAC platforms.
             </p>
             <p>
-              Then I discovered AI agents. I built my first automation — a Telegram bot that 
-              checked my inventory every morning and sent me alerts. It took 2 hours to build. 
-              It saved me 5 hours every week. Forever.
+              At Nieboo UK, she managed product listings end-to-end — optimizing for visibility 
+              and sales, creating shipments, monitoring inventory, and correcting errors. 
+              At Sweese, she ran multi-platform support across Amazon, Shopify, Facebook, 
+              Instagram, and the brand's own website.
             </p>
             <p>
-              I built more. A PPC monitor. A pricing tracker. A customer service responder. 
-              Within 3 months, I had 20+ automations running 24/7. My "work" became checking 
-              Telegram notifications and making decisions.
+              As an Amazon Technician at Machete Systems, she managed up to 10 accounts 
+              simultaneously, leading teams from the Philippines and India. She handled 
+              account management, inventory control, SEO, PPC campaigns, and customer 
+              service — driving measurable improvements in sales and satisfaction.
+            </p>
+            <p>
+              Most recently, as an Amazon Account Health Manager at Camden Pharma, she 
+              led teams managing multiple accounts across US, UK, and all EU marketplaces — 
+              overseeing violations, restrictions, IP rights, stranded inventory, and policy compliance.
             </p>
             <p className="text-warm font-medium">
-              That's what amajungle is. We build those automations for you. In 48 hours. 
-              For a one-time fee. So you can focus on growth instead of busywork.
+              After 10 years of solving the same problems manually, she built amajungle 
+              to combine deep Amazon expertise with AI automation — so sellers can finally 
+              focus on growth instead of busywork.
             </p>
           </div>
 
           {/* Signature */}
           <div className="mt-12 flex items-center gap-4 justify-center">
             <div className="w-16 h-16 rounded-full bg-neon/20 flex items-center justify-center">
-              <span className="text-neon font-bold text-xl">JD</span>
+              <span className="text-neon font-bold text-xl">AE</span>
             </div>
             <div className="text-left">
-              <p className="text-warm font-medium">Jayson Delos Santos</p>
+              <p className="text-warm font-medium">Allysa Kate Estardo</p>
               <p className="text-warm-72 text-sm">Founder, amajungle</p>
+              <p className="text-warm-72 text-xs">10 Years Amazon Experience • All Around Account Management</p>
             </div>
           </div>
         </div>
@@ -309,7 +318,7 @@ export default function AboutPage() {
             </ul>
           </div>
           <p className="text-warm-72 text-sm italic">
-            "We're new. We have to be this good to earn your trust."
+            "We spent a decade managing Amazon accounts. Now we automate them."
           </p>
         </div>
       </section>
@@ -321,7 +330,7 @@ export default function AboutPage() {
             Let's Build Something Together
           </h2>
           <p className="text-warm-72 text-lg mb-8 max-w-md mx-auto">
-            Book a free 15-minute call. Tell me about your business. I'll tell you 
+            Book a free 30-minute call. Tell us about your business. We'll tell you 
             exactly how we can help — no pitch, no pressure.
           </p>
           <CalendlyButton className="mx-auto" />
