@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Send, Mail, Phone, MapPin, MessageSquare } from 'lucide-react';
 import { toast } from 'sonner';
+import emailjs from '@emailjs/browser';
 import CalendlyButton from '../components/CalendlyButton';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -48,15 +49,18 @@ export default function ContactSection() {
     setIsSubmitting(true);
     
     try {
-      // Send form data via mailto as a working fallback
-      // TODO: Replace with Formspree, EmailJS, or a serverless function for better UX
-      const subject = encodeURIComponent(`Contact from ${formData.name}`);
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      await emailjs.send(
+        'service_6j9tm4m',
+        'template_yhii41g',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        'rEsGrRh2EGJZawfqI'
       );
-      window.open(`mailto:hello@amajungle.com?subject=${subject}&body=${body}`, '_self');
       
-      toast.success('Opening your email client... Alternatively, email us directly at hello@amajungle.com');
+      toast.success('Message sent! We\'ll reply within 24 hours.');
       setFormData({ name: '', email: '', message: '' });
     } catch {
       toast.error('Something went wrong. Please email us directly at hello@amajungle.com');

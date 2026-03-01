@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Check, ArrowRight, Mail, Search, TrendingUp, AlertCircle } from 'lucide-react';
 import { toast } from 'sonner';
+import emailjs from '@emailjs/browser';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,15 +56,18 @@ export default function LeadMagnetSection() {
     setIsSubmitting(true);
     
     try {
-      // Send audit request via mailto as a working fallback
-      // TODO: Replace with Formspree, EmailJS, or a serverless function for better UX
-      const subject = encodeURIComponent('Free Amazon Audit Request');
-      const body = encodeURIComponent(
-        `Email: ${email}\nStore URL: ${storeUrl || 'Not provided'}\n\nRequesting a free Amazon store audit.`
+      await emailjs.send(
+        'service_6j9tm4m',
+        'template_yhii41g',
+        {
+          from_name: 'Audit Request',
+          from_email: email,
+          message: `Store URL: ${storeUrl || 'Not provided'}\n\nRequesting a free Amazon store audit.`,
+        },
+        'rEsGrRh2EGJZawfqI'
       );
-      window.open(`mailto:hello@amajungle.com?subject=${subject}&body=${body}`, '_self');
       
-      toast.success('Opening your email client to send the audit request...');
+      toast.success('Audit request received! Check your email in 24-48 hours.');
       setSubmitted(true);
     } catch {
       toast.error('Something went wrong. Please email us directly at hello@amajungle.com');
