@@ -64,7 +64,7 @@ export default function CalendlyButton({
             {/* Calendly Inline Widget */}
             <div className="w-full h-[calc(80vh-80px)]">
               <iframe
-                src="https://calendly.com/amajungle/strategy-call?embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1"
+                src="https://calendly.com/ops-amajungle/30min?embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1"
                 width="100%"
                 height="100%"
                 style={{ border: 'none' }}
