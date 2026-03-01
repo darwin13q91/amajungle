@@ -62,6 +62,9 @@ export default function LeadMagnetSection() {
         {
           from_name: 'Audit Request',
           from_email: email,
+          phone: '',
+          company: storeUrl || 'Not provided',
+          service: 'Free Amazon Audit',
           message: `Store URL: ${storeUrl || 'Not provided'}\n\nRequesting a free Amazon store audit.`,
         },
         'rEsGrRh2EGJZawfqI'

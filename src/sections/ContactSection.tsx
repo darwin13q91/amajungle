@@ -15,6 +15,9 @@ export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
+    company: '',
+    service: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -55,13 +58,16 @@ export default function ContactSection() {
         {
           from_name: formData.name,
           from_email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service: formData.service,
           message: formData.message,
         },
         'rEsGrRh2EGJZawfqI'
       );
       
       toast.success('Message sent! We\'ll reply within 24 hours.');
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', company: '', service: '', message: '' });
     } catch {
       toast.error('Something went wrong. Please email us directly at hello@amajungle.com');
     } finally {
@@ -69,7 +75,7 @@ export default function ContactSection() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -165,7 +171,7 @@ export default function ContactSection() {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label htmlFor="name" className="block text-warm text-sm font-medium mb-2">
-                  Name
+                  Name *
                 </label>
                 <input
                   type="text"
@@ -181,7 +187,7 @@ export default function ContactSection() {
 
               <div>
                 <label htmlFor="email" className="block text-warm text-sm font-medium mb-2">
-                  Email
+                  Email *
                 </label>
                 <input
                   type="email"
@@ -195,9 +201,61 @@ export default function ContactSection() {
                 />
               </div>
 
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="phone" className="block text-warm text-sm font-medium mb-2">
+                    Phone
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl bg-warm/5 border border-warm/20 text-warm placeholder-warm/40 focus:outline-none focus:border-neon transition-colors"
+                    placeholder="+1 (555) 000-0000"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="company" className="block text-warm text-sm font-medium mb-2">
+                    Company
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl bg-warm/5 border border-warm/20 text-warm placeholder-warm/40 focus:outline-none focus:border-neon transition-colors"
+                    placeholder="Your brand or store"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="service" className="block text-warm text-sm font-medium mb-2">
+                  Service Interested In
+                </label>
+                <select
+                  id="service"
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-xl bg-warm/5 border border-warm/20 text-warm focus:outline-none focus:border-neon transition-colors appearance-none"
+                >
+                  <option value="" className="bg-jungle">Select a service...</option>
+                  <option value="AI Automation Setup" className="bg-jungle">AI Automation Setup — $997</option>
+                  <option value="Amazon Growth Management" className="bg-jungle">Amazon Growth Management — $999/mo</option>
+                  <option value="Brand Website Development" className="bg-jungle">Brand Website Development — $1,497</option>
+                  <option value="Free Audit" className="bg-jungle">Free Amazon Audit</option>
+                  <option value="Other" className="bg-jungle">Other / Not sure yet</option>
+                </select>
+              </div>
+
               <div>
                 <label htmlFor="message" className="block text-warm text-sm font-medium mb-2">
-                  Message
+                  Message *
                 </label>
                 <textarea
                   id="message"
