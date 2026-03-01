@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+# amajungle
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**AI-powered Amazon automation for sellers who want to scale without the busywork.**
 
-Currently, two official plugins are available:
+amajungle combines 10 years of hands-on Amazon expertise with AI automation to help sellers save time, reduce errors, and grow faster across US, UK, and EU marketplaces.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What We Do
 
-## React Compiler
+- **AI Agent Setup** — Custom AI agents that handle inventory monitoring, PPC tracking, pricing, and customer service — deployed in 48 hours
+- **Amazon Account Management** — Full-service account management across Seller Central, including listings, shipments, compliance, and account health
+- **Automation & Optimization** — Automate repetitive workflows so you can focus on strategy and growth
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Key Features
 
-## Expanding the ESLint configuration
+- 30-day money-back guarantee
+- One-time pricing (no retainers)
+- Founder-led — direct access to the person managing your account
+- Multi-marketplace support (US, UK, EU)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Frontend:** React 19 + TypeScript + Vite
+- **Styling:** Tailwind CSS
+- **Animations:** GSAP + ScrollTrigger
+- **Forms:** EmailJS
+- **Scheduling:** Calendly
+- **Hosting:** Vercel
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Contact
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Website:** [amajungle.com](https://amajungle.com)
+- **Email:** ops@amajungle.com
+- **Calendly:** [Book a free 30-min call](https://calendly.com/ops-amajungle/30min)
