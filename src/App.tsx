@@ -21,13 +21,23 @@ import ContactSection from './sections/ContactSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Scroll to top on route change
+// Scroll to top on route change, but respect hash fragments
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   
   useEffect(() => {
+    if (hash) {
+      // Wait for DOM to render, then scroll to the target element
+      const timer = setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
   
   return null;
 }

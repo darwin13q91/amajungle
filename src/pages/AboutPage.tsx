@@ -2,7 +2,7 @@ import { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowLeft, Clock, Shield, Zap, MessageCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CalendlyButton from '../components/CalendlyButton';
 import AnimatedLogo from '../components/AnimatedLogo';
 
@@ -54,6 +54,12 @@ export default function AboutPage() {
   const storyRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
   const differentRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+
+  const handleHashLink = (e: React.MouseEvent, to: string) => {
+    e.preventDefault();
+    navigate(to);
+  };
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -163,9 +169,9 @@ export default function AboutPage() {
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <CalendlyButton>Book a free call</CalendlyButton>
-            <Link to="/#pricing" className="btn-secondary">
+            <a href="/#pricing" onClick={(e) => handleHashLink(e, '/#pricing')} className="btn-secondary">
               See pricing
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -353,12 +359,12 @@ export default function AboutPage() {
             <Link to="/" className="text-warm-72 hover:text-warm transition-colors text-sm">
               Home
             </Link>
-            <Link to="/#pricing" className="text-warm-72 hover:text-warm transition-colors text-sm">
+            <a href="/#pricing" onClick={(e) => handleHashLink(e, '/#pricing')} className="text-warm-72 hover:text-warm transition-colors text-sm">
               Pricing
-            </Link>
-            <Link to="/#faq" className="text-warm-72 hover:text-warm transition-colors text-sm">
+            </a>
+            <a href="/#faq" onClick={(e) => handleHashLink(e, '/#faq')} className="text-warm-72 hover:text-warm transition-colors text-sm">
               FAQ
-            </Link>
+            </a>
           </div>
         </div>
       </footer>

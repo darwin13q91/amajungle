@@ -1,5 +1,29 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import AnimatedLogo from './AnimatedLogo';
+
+function HashLink({ to, children, className }: { to: string; children: React.ReactNode; className?: string }) {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const hash = to.replace('/', '');
+    if (pathname === '/') {
+      // Already on home page — just scroll
+      const el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Navigate to home, ScrollToTop will handle the hash scroll
+      navigate(to);
+    }
+  };
+
+  return (
+    <a href={to} onClick={handleClick} className={className}>
+      {children}
+    </a>
+  );
+}
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,18 +42,18 @@ export default function Footer() {
 
           {/* Links */}
           <div className="flex flex-wrap items-center justify-center gap-6">
-            <Link to="/#demo" className="text-warm-72 hover:text-warm transition-colors text-sm">
+            <HashLink to="/#demo" className="text-warm-72 hover:text-warm transition-colors text-sm">
               Demo
-            </Link>
-            <Link to="/#pricing" className="text-warm-72 hover:text-warm transition-colors text-sm">
+            </HashLink>
+            <HashLink to="/#pricing" className="text-warm-72 hover:text-warm transition-colors text-sm">
               Pricing
-            </Link>
-            <Link to="/#faq" className="text-warm-72 hover:text-warm transition-colors text-sm">
+            </HashLink>
+            <HashLink to="/#faq" className="text-warm-72 hover:text-warm transition-colors text-sm">
               FAQ
-            </Link>
-            <Link to="/#contact" className="text-warm-72 hover:text-warm transition-colors text-sm">
+            </HashLink>
+            <HashLink to="/#contact" className="text-warm-72 hover:text-warm transition-colors text-sm">
               Contact
-            </Link>
+            </HashLink>
           </div>
         </div>
 
